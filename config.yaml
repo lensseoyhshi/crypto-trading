@@ -1,0 +1,45 @@
+app:
+  name: "Crypto Trading Framework"
+  version: "1.0.0"
+  description: "Multi-exchange crypto trading framework with webhook support"
+
+server:
+  host: "0.0.0.0"
+  port: 8000
+  reload: true
+
+database:
+  url: "sqlite+aiosqlite:///./trading.db"
+  echo: false  # Set to true for SQL query logging
+
+exchanges:
+  supported:
+    - binance
+    - okx
+    - gateio
+  
+  rate_limits:
+    default: 10  # requests per second
+    binance: 20
+    okx: 20
+    gateio: 10
+
+trading:
+  max_positions_per_account: 10
+  default_leverage: 1
+  risk_management:
+    max_position_size: 0.1  # 10% of account balance
+    stop_loss_percentage: 0.05  # 5%
+    take_profit_percentage: 0.1  # 10%
+
+webhooks:
+  timeout: 30  # seconds
+  retry_attempts: 3
+  verify_signature: true
+
+logging:
+  level: "INFO"
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {name}:{function}:{line} - {message}"
+  file: "logs/trading.log"
+  rotation: "100 MB"
+  retention: "30 days"

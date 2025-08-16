@@ -1,0 +1,30 @@
+# 最小化依赖版本 - 如果requirements.txt安装失败，请尝试这个文件
+# 使用方法: pip install -r requirements-minimal.txt
+
+# 核心Web框架
+fastapi
+uvicorn
+pydantic
+
+# 数据库
+sqlalchemy
+aiosqlite
+
+# 安全和加密
+cryptography
+passlib
+
+# HTTP客户端
+httpx
+requests
+
+# 交易所API
+ccxt
+
+# 配置和日志
+python-dotenv
+loguru
+
+# 基础工具
+pyyaml
+asyncio-mqtt
